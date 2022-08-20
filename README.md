@@ -108,7 +108,7 @@ sendWay = 2
 
 在弹出栏中，填写触发器名称，触发方式选择指定时间，指定时间框选择每日自动打卡时间，其他留空，点击“确定”完成创建。
 
-![image-20220820151835629](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220820151835629.png)
+![图片.png](https://s2.loli.net/2022/08/20/MfHgrm3PyZB1uLc.png)
 
 ### 7.完成
 
