@@ -14,9 +14,19 @@ headers = {"Host":"ctsxx.gnway.org","Connection":"keep-alive","Content-Length":"
 def main():
     response = requests.post(url,data=data.encode('utf-8'),headers=headers)
     if response.text == 'true':
-        message = resp['user']['user']['nickName'] + resp['user']['user']['username'] + '打卡成功！'
+        message = resp['user']['user']['nickName'] + resp['user']['user']['username'] + ' 打卡成功！'
         push.send(message)
     else:
-        message = resp['user']['user']['nickName'] + resp['user']['user']['username'] + '打卡失败！'
+        message = resp['user']['user']['nickName'] + resp['user']['user']['username'] + ' 打卡失败！' + errorReason()
         push.send(message)
+
+
+def errorReason():
+    url = 'https://ctsxx.gnway.org/xgxt-api/api/clockIn/clockInList/isClockIn?xh=' + config.studentid
+    if requests.get(url).text == '1':
+        message = ' 今日已打卡！'
+    else:
+        message = ' 未知错误'
+    return message
 main()
+
