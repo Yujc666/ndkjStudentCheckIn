@@ -22,7 +22,9 @@ todayNuc = '1'
 isTravelHistory = '0'
 #是否隔离（1为是，2为否）
 isolation = '0'
-
+#关注江西省疾病预防防控 ······ 是否有其中最新提示中的风险区域旅居史（1为是，2为否）
+isTravelHistory2 = '0'
+#本人对提供的健康相关信息真实性负责（这个没得选，不负责就打不了卡）
 
 
 
@@ -52,9 +54,9 @@ import requests
 
 url = 'https://ctsxx.gnway.org/xgxt-api/auth/mobileLogin'
 headers = {"Host":"ctsxx.gnway.org","Connection":"keep-alive","Content-Length":"105","authorization":"","charset":"utf-8","User-Agent":"Mozilla/5.0 (Linux; Android 10; Redmi K30 Pro Build/QKQ1.191117.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.99 XWEB/3263 MMWEBSDK/20220303 Mobile Safari/537.36 MMWEBID/4518 MicroMessenger/8.0.21.2103(0x28001541) Process/appbrand0 WeChat/arm64 Weixin GPVersion/1 NetType/WIFI Language/zh_CN ABI/arm64 MiniProgramEnv/android","content-type":"application/json","Accept-Encoding":"gzip,compress,br,deflate","Referer":"https://servicewechat.com/wx1f9c0d3d1cad1cd7/21/page-frame.html"}
-#获取token
+#登录获取必要信息
 def login(studentid,password):
-    data = '{"username":"'+studentid+'","password":"'+password+'","roleName":"学生","openId":"oObP14iXWdWErW3h25XQ4tvYwvNM"}'
+    data = '{"username":"'+studentid+'","password":"'+password+'","openId":"oObP14iXWdWErW3h25XQ4tvYwvNM"}'
     x = requests.post(url,data=data.encode('utf-8'),headers=headers)
     x.close()
     return x.json()
