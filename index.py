@@ -33,7 +33,8 @@ def main():
 
 def errorReason():
     url = 'https://ctsxx.gnway.org/xgxt-api/api/clockIn/clockInList/isClockIn?xh=' + config.studentid
-    if requests.get(url).text == '1':
+    headers = {"authorization":token}
+    if requests.get(url , headers = headers).text == '1':
         message = ' 今日已打卡！'
     else:
         message = ' 未知错误'
